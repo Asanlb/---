@@ -42,6 +42,7 @@ void print(string arr[3][3],bool *isBool){
 
 
 int main(){
+  while(1){
   string arr[3][3];
   bool isBool = 1;
   bool *is = &isBool;
@@ -51,7 +52,7 @@ int main(){
     }
   }
   print(arr,is);
-  int a,b,x=0;
+  int a,b,x=0,c=0;
   while (isBool){
     while(true){
       cout<<"A: ";cin>>a;
@@ -65,11 +66,35 @@ int main(){
     }
     if((x+1)%2==1){
       arr[a][b]="X";
-    } else
+      c++;
+    } else {
       arr[a][b]="O";
+      c++;
+    }
     print(arr,is);
+    if(c==9){
+      cout<<"Game Over ";
+      break;
+    }
     x++;
   }
-  
+  string soz;
+  bool jauap = 0;
+  while(true){
+  cout<<"Repeat? [Y/N]: ";
+  cin >> soz;
+  if(soz == "Y"){
+    break;
+  } else if(soz == "N"){
+    jauap = 1;
+    break;
+  }
+  else  
+    cout<<"Repeat";
+  }
+  if(jauap){
+    break;
+  }
+  }
   return 0;
 }
